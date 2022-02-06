@@ -58,6 +58,7 @@ const TableComp = () => {
     person: Object,
     personid: number
   }
+  
   /**
    * When a user edits a field in EditableRow component,
    * this handles the changes to a particular field.
@@ -74,7 +75,7 @@ const TableComp = () => {
     setEditFormData(newPersonData);
   }
 
-  
+
   /**
    * Handles the addition of people. 
    * Gets the new information and sets it to state.
