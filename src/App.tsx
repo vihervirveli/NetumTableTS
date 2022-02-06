@@ -1,5 +1,5 @@
 
-import AddForm from './components/AddForm';
+import TableComp from './components/TableComp';
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   
   return (
     <div className="App">
-    <AddForm handleAddingPeople={handleAddingPeople}/>
+    <TableComp/>
     </div>
   );
 }
