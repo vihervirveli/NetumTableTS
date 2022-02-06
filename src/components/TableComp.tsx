@@ -26,7 +26,7 @@ const TableComp = () => {
    * table.
    * @param people_data {Array} people objects from the mockdata.sjon file
    */
-  const [people, setPeople] = useState<IState["people"]>(people_data);
+  const [people, setPeople] = useState<IState["people"][]>(people_data);
 
   /**
    * useState which handles adding new people into the table
@@ -54,9 +54,9 @@ const TableComp = () => {
 
 
   type Props = {
-    event: ReactNode,
-    person: ReactNode,
-    personid: ReactNode
+    event: React.ChangeEvent<HTMLInputElement>,
+    person: Object,
+    personid: number
   }
   /**
    * When a user edits a field in EditableRow component,
@@ -68,7 +68,9 @@ const TableComp = () => {
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
     const newPersonData = { ...editFormData };
-    newPersonData[fieldName] = fieldValue;
+    if (fieldName) {
+      newPersonData[fieldName] = fieldValue;
+    }
     setEditFormData(newPersonData);
   }
 
