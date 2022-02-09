@@ -5,9 +5,17 @@ import { nanoid } from 'nanoid';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 import AddForm from './AddForm';
-import { ReactNode } from 'react'
 
+type PersonData = {
+  [index: string]: string | number | null;
+  id?: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+/*
 interface IState {
+
   addFormInfo: {
     firstName: string,
     lastName: string,
@@ -18,16 +26,23 @@ interface IState {
     firstName: string,
     lastName: string,
     age: string
-  }
+  },
+  newPersonData: {
+    [index: string]: string,
+    firstName: string,
+    lastName: string,
+    age: string
+    }
 }
+*/
 const TableComp = () => {
   /**
    * useState which handles how many people there are in the
    * table.
    * @param people_data {Array} people objects from the mockdata.sjon file
    */
-  const [people, setPeople] = useState<IState["people"][]>(people_data);
-
+  const [people, setPeople] = useState<PersonData>[](people_data);
+//  const [people, setPeople] = useState<IState/["people"][]>(people_data);
   /**
    * useState which handles adding new people into the table
    */
@@ -56,9 +71,17 @@ const TableComp = () => {
   type Props = {
     event: React.ChangeEvent<HTMLInputElement>,
     person: Object,
-    personid: number
+    personid: number,
+    newPersonData: {
+      [key: string]: string;
+      }
   }
-  
+/*  
+  type Keys = 'firstName' | 'lastName' | 'age';
+
+  type newPersonData: {
+    [key: Keys]: string;
+}*/
   /**
    * When a user edits a field in EditableRow component,
    * this handles the changes to a particular field.
@@ -67,6 +90,7 @@ const TableComp = () => {
   const handleEditingPeople = ({event}:Props) => {
     event.preventDefault();
     const fieldName = event.target.getAttribute("name");
+  
     const fieldValue = event.target.value;
     const newPersonData = { ...editFormData };
     if (fieldName) {
