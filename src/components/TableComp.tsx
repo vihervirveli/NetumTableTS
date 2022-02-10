@@ -6,9 +6,9 @@ import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 import AddForm from './AddForm';
 
-type PersonData = {
-  [index: string]: string | number | null;
-  id?: number;
+interface PersonData {
+  [index: string]: string | number | null | undefined;
+  id?: string | number ;
   firstName: string;
   lastName: string;
   age: number;
