@@ -1,9 +1,9 @@
 import './AddForm.css';
 
-type Props = {
-  handleAddingPeople: any
+interface Handler {
+  handleAddingPeople: React.ChangeEventHandler<HTMLInputElement>
 }
-const AddForm = ({handleAddingPeople}: Props) => {
+const AddForm = ({handleAddingPeople}:Handler) => {
   return (
     <div className='inputit'>
       <h2>Lisää ihminen</h2>

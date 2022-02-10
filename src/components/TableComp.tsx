@@ -41,7 +41,7 @@ const TableComp = () => {
    * table.
    * @param people_data {Array} people objects from the mockdata.sjon file
    */
-  const [people, setPeople] = useState<PersonData>[](people_data);
+  const [people, setPeople] = useState<PersonData[]>(people_data);
 //  const [people, setPeople] = useState<IState/["people"][]>(people_data);
   /**
    * useState which handles adding new people into the table
@@ -94,7 +94,7 @@ const TableComp = () => {
     const fieldValue = event.target.value;
     const newPersonData = { ...editFormData };
     if (fieldName) {
-      newPersonData[fieldName] = fieldValue;
+      newPersonData[fieldName]:PersonData = fieldValue;
     }
     setEditFormData(newPersonData);
   }

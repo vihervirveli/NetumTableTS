@@ -1,10 +1,19 @@
 import './EditableRow.css'
 
-type Props = {
-  editFormData: any,
-  handleEditingPeople: any
+type Person ={
+  [index: string]: string | number | null | undefined;
+  id?: string | number ;
+  firstName: string;
+  lastName: string;
+  age: number;
 }
-const EditableRow = ({editFormData, handleEditingPeople}:Props) => {
+
+interface EditorAndEdit {
+  editFormData: Person,
+  handleEditingPeople: React.ChangeEventHandler<HTMLInputElement>
+}
+
+const EditableRow = ({editFormData, handleEditingPeople}:EditorAndEdit) => {
   return (
   <tr className='editoitavat'>
     <td><input type="text" name="firstName"  placeholder='Muokkaa etunimeä' 

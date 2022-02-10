@@ -1,6 +1,8 @@
 
-import TableComp from './components/TableComp';
+//import TableComp from './components/TableComp';
+
 import './App.css';
+import TableComp from './components/TableComp';
 
 function App() {
   
