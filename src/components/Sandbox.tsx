@@ -5,19 +5,19 @@ const alkudata = [
     "id": 1,
     "firstName": "Steve",
     "lastName": "Mathers",
-    "age": "105"
+    "age": 105
   },
   {
     "id": 2,
     "firstName": "Margaret",
     "lastName": "Hamill",
-    "age": "82"
+    "age": 82
   },
   {
     "id": 3,
     "firstName": "Thomas",
     "lastName": "Harris",
-    "age": "43"
+    "age": 43
   }
 ]
 
@@ -31,7 +31,7 @@ interface PersonData {
 
 const Sandbox = () => {
   //here we experiment with Typescript until we can do it to the other files
-  const [people, setPeople] = useState<PersonData>(alkudata);
+  const [people, setPeople] = useState<PersonData[]>(alkudata);
 
   return(<div>
     <table>
